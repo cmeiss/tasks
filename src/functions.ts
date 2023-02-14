@@ -12,7 +12,17 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    return 0;
+    let result = 0;
+    if (first > 0) {
+        result = result + first;
+    }
+    if (second > 0) {
+        result = result + second;
+    }
+    if (third > 0) {
+        result = result + third;
+    }
+    return result;
 }
 
 /**
@@ -20,7 +30,8 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    return "";
+    const up = message.toUpperCase();
+    return up + "!";
 }
 
 /**
@@ -28,7 +39,7 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    return true;
+    return message[message.length - 1] === "?";
 }
 
 /**
