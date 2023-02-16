@@ -7,15 +7,12 @@
 export function bookEndList(numbers: number[]): number[] {
     if (numbers.length === 0) {
         const result: number[] = [];
-        console.log("empty array" + result);
         return result;
     } else if (numbers.length === 1) {
         const result: number[] = [numbers[0], numbers[0]];
-        console.log("array with one element" + result);
         return result;
     } else {
         const result: number[] = [numbers[0], numbers[numbers.length - 1]];
-        console.log("array > 2" + result);
         return result;
     }
 }
@@ -34,7 +31,10 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const converted = numbers.map((num: string): number =>
+        !Number.isNaN(parseInt(num)) ? parseInt(num) : 0
+    );
+    return converted;
 }
 
 /**
