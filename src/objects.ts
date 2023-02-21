@@ -10,7 +10,16 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    return {
+        body: "",
+        expected: "",
+        id: id,
+        name: name,
+        type: type,
+        options: [],
+        points: 1,
+        published: false
+    };
 }
 
 /**
@@ -21,6 +30,11 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+    const nAnswer = answer.toLowerCase().trim();
+    const nExpected = question.expected.toLowerCase().trim();
+    if (nAnswer === nExpected) {
+        return true;
+    }
     return false;
 }
 
