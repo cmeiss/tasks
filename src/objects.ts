@@ -63,7 +63,6 @@ export function isValid(question: Question, answer: string): boolean {
  */
 export function toShortForm(question: Question): string {
     const shortForm = question.id + ": " + question.name.slice(0, 10);
-    console.log(shortForm);
     return shortForm;
 }
 
@@ -167,5 +166,12 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        points: points,
+        published: false
+    };
+    return newQuestion;
 }
