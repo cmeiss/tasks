@@ -2,11 +2,26 @@ import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
+ * Question example:
+ * questions body: "",
+        expected: "",
+        id: id,
+        name: name,
+        type: type,
+        options: [],
+        points: 1,
+        published: false
+ *  
+ */
+/**
  * Consumes an array of questions and returns a new array with only the questions
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    return [];
+    const published = questions.filter(
+        (question: Question): boolean => question.published === true
+    );
+    return published;
 }
 
 /**
