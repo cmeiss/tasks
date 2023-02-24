@@ -31,14 +31,12 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    console.log(...questions);
     const nonEmpty = questions.filter(
         (question: Question): boolean =>
             question.body !== "" ||
             question.expected !== "" ||
             question.options.length !== 0
     );
-    console.log(...nonEmpty);
     return nonEmpty;
 }
 
@@ -229,24 +227,8 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    // function changeType(question: Question, newQuestionType: QuestionType){
-    //     if (newQuestionType !== "multiple_choice_question") {
-    //         question.options = [];
-    //     }
-    //     return question.options;
-    // }
-    // const updated = questions.map(
-    //     (question: Question): Question =>
-    //         question.id === targetId
-    //             ?
-    //                 ({  ...question,
-    //                 type: newQuestionType,
-    //                 options: changeType(question, newQuestionType)
-    //             }
-    //             ): ({ ...question, options: question.options })
-    // );
+    let newQ: Question[] = [];
     if (newQuestionType === "multiple_choice_question") {
-        let newQ: Question[] = [];
         newQ = questions.map(
             (question: Question): Question =>
                 question.id === targetId
