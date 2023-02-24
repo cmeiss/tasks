@@ -208,7 +208,23 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    // const newQ = questions.map(
+    //     (question: Question): Question => ({
+    //         ...question,
+    //         options: question.options
+    //     })
+    // );
+    // const id = newQ.findIndex(
+    //     (question: Question): boolean => question.id === targetId
+    // );
+    // newQ[id] = { ...newQ, name: newName };
+    const updated = questions.map(
+        (question: Question): Question =>
+            question.id === targetId
+                ? { ...question, options: question.options, name: newName }
+                : { ...question, options: question.options }
+    );
+    return updated;
 }
 
 /***
