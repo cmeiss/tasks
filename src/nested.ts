@@ -228,24 +228,24 @@ export function changeQuestionTypeById(
     newQuestionType: QuestionType
 ): Question[] {
     let newQ: Question[] = [];
-    if (newQuestionType === "multiple_choice_question") {
-        newQ = questions.map(
-            (question: Question): Question =>
-                question.id === targetId
-                    ? {
-                          ...question,
-                          options: question.options,
-                          type: newQuestionType
-                      }
-                    : { ...question, options: question.options }
-        );
+
+    newQ = questions.map(
+        (question: Question): Question => ({
+            ...question,
+            options: question.options
+        })
+    );
+    const target = newQ.find(
+        (question: Question): boolean => question.id === targetId
+    );
+
+    if (target === undefined) {
+        return newQ;
+    } else if (newQuestionType !== "multiple_choice_question") {
+        target.options = [];
+        target.type = newQuestionType;
     } else {
-        newQ = questions.map(
-            (question: Question): Question =>
-                question.id === targetId
-                    ? { ...question, options: [], type: newQuestionType }
-                    : { ...question, options: question.options }
-        );
+        target.type = newQuestionType;
     }
     return newQ;
 }
