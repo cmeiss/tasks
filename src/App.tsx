@@ -15,52 +15,6 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript : Cornelia Meiss
                 <h1>Rowing is cool</h1>
             </header>
-<<<<<<< HEAD
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. Hello World.
-            </p>
-            <Container>
-                <Row>
-                    <Col>
-                        <img
-                            src={require("./CAA_2.jpg")}
-                            width="200"
-                            height="125"
-                            alt="a picture of our eight at CAAs."
-                        />
-                        <div
-                            id="rectangle"
-                            style={{
-                                width: "100px",
-                                height: "50px",
-                                backgroundColor: "red"
-                            }}
-                        ></div>
-                    </Col>
-                    <Col>
-                        Reasons for Rowing:
-                        <ul>
-                            <li>You see the sunrise every morning</li>
-                            <li>You hang out with amazing people</li>
-                            <li>Regattas!!!!</li>
-                        </ul>
-                        <div
-                            id="rectangle"
-                            style={{
-                                width: "100px",
-                                height: "50px",
-                                backgroundColor: "red"
-                            }}
-                        ></div>
-                    </Col>
-                </Row>
-            </Container>
-
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-=======
             <hr></hr>
             <Counter></Counter>
             <hr />
@@ -73,7 +27,6 @@ function App(): JSX.Element {
             <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
->>>>>>> upstream/task-state
         </div>
     );
 }
