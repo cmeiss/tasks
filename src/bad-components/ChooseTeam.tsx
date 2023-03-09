@@ -10,18 +10,13 @@ const PEOPLE = [
     "Margaret Hamilton"
 ];
 
-interface Options {
-    allOptions: string[];
-    setAllOptions: (newOption: string[]) => void;
-}
-
 interface Team {
     team: string[];
     setTeam: (newTeam: string[]) => void;
 }
 
 export function ChooseTeam(): JSX.Element {
-    const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
+    const [allOptions] = useState<string[]>(PEOPLE); //not shared across components
     const [team, setTeam] = useState<string[]>([]);
 
     function chooseMember(
@@ -32,21 +27,11 @@ export function ChooseTeam(): JSX.Element {
             const newPeople = [...team, newMember];
             setTeam(newPeople);
         }
-        // if (!team.includes(option)) {
-        //     const newPeople = [...team, option];
-        //     setTeam(newPeople);
-        //     const newOptions = [];
-        // }
-
         return <div></div>;
     }
 
     function clearTeam({ setTeam }: Team) {
         setTeam([]);
-        /*
-        setTeam([]);
-        setAllOptions(PEOPLE);
-        */
     }
 
     return (

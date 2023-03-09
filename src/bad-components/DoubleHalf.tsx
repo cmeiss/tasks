@@ -6,13 +6,6 @@ interface DHValue {
     DhValue: number;
 }
 
-// function DhValue(props: DhValue): JSX.Element {
-//     return <div>
-//     props.DhValue = 10;
-//     props.setDhValue = () => DhValue*2;
-//     </div>
-// }
-
 function Doubler({ setDhValue, DhValue }: DHValue): JSX.Element {
     return (
         <div>
