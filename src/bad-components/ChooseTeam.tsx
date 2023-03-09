@@ -10,21 +10,42 @@ const PEOPLE = [
     "Margaret Hamilton"
 ];
 
+interface Options {
+    allOptions: string[];
+    setAllOptions: (newOption: string[]) => void;
+}
+
+interface Team {
+    team: string[];
+    setTeam: (newTeam: string[]) => void;
+}
+
 export function ChooseTeam(): JSX.Element {
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
-    function chooseMember() {
-        /*
+    function chooseMember(
+        { team, setTeam }: Team,
+        newMember: string
+    ): JSX.Element {
         if (!team.includes(newMember)) {
-            team.push(newMember);
+            const newPeople = [...team, newMember];
+            setTeam(newPeople);
         }
-        */
+        // if (!team.includes(option)) {
+        //     const newPeople = [...team, option];
+        //     setTeam(newPeople);
+        //     const newOptions = [];
+        // }
+
+        return <div></div>;
     }
 
-    function clearTeam() {
+    function clearTeam({ setTeam }: Team) {
+        setTeam([]);
         /*
-        team = [];
+        setTeam([]);
+        setAllOptions(PEOPLE);
         */
     }
 
@@ -36,7 +57,12 @@ export function ChooseTeam(): JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={chooseMember} size="sm">
+                            <Button
+                                onClick={() =>
+                                    chooseMember({ team, setTeam }, option)
+                                }
+                                size="sm"
+                            >
                                 {option}
                             </Button>
                         </div>
@@ -47,7 +73,9 @@ export function ChooseTeam(): JSX.Element {
                     {team.map((member: string) => (
                         <li key={member}>{member}</li>
                     ))}
-                    <Button onClick={clearTeam}>Clear Team</Button>
+                    <Button onClick={() => clearTeam({ team, setTeam })}>
+                        Clear Team
+                    </Button>
                 </Col>
             </Row>
         </div>
