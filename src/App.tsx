@@ -63,7 +63,7 @@ function App(): JSX.Element {
                 Log Hello World
             </Button>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            <DoubleHalf></DoubleHalf>
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
