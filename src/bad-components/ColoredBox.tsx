@@ -37,7 +37,7 @@ export function ColoredBox(): JSX.Element {
     const [colorIndex, setColorIndex] = useState<number>(DEFAULT_COLOR_INDEX);
     return (
         <div>
-            <h3>Colored Box</h3>
+            <div>Colored Box</div>
             <span>The current color is: {COLORS[DEFAULT_COLOR_INDEX]}</span>
             <div>
                 <ChangeColor
