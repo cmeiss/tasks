@@ -14,30 +14,6 @@ interface Student {
     setStudent: (newStudent: boolean) => void;
 }
 
-// function InEdit({ name, setName }: Name): // { student, setStudent }: Student
-// JSX.Element {
-//     return (
-//         <div>
-//             <Form.Group controlId="changeName">
-//                 <Form.Label>Enter your name:</Form.Label>
-//                 <Form.Control
-//                     value={name}
-//                     onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-//                         setName(event.target.value)
-//                     }
-//                 />
-//             </Form.Group>
-//             {/* <Form.Check
-//                 type="checkbox"
-//                 id="is-student-check"
-//                 label="Are you a student?"
-//                 checked={student}
-//                 onChange={() => setStudent(!student)}
-//             /> */}
-//         </div>
-//     );
-// }
-
 function InEditName({ name, setName }: Name): JSX.Element {
     return (
         <div>
@@ -74,7 +50,6 @@ function NotInEdit({
 }: {
     name: string;
     student: boolean;
-    // { student }: { student: boolean }
 }): JSX.Element {
     return (
         <div>
@@ -99,12 +74,6 @@ export function EditMode(): JSX.Element {
             />
             <div>
                 {editMode ? (
-                    // <InEdit
-                    //     name={name}
-                    //     setName={setName}
-                    //     // student={student}
-                    //     // setStudent={setStudent}
-                    // ></InEdit>
                     <div>
                         <InEditName name={name} setName={setName}></InEditName>
                         <InEditStudent

@@ -1,18 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-// interface GivenAnswer {
-//     givenAnswer: string;
-//     setGivenAnswer: (newAnswer: string) => void;
-// }
-
-// function updateAnswer(
-//     //{ setGivenAnswer }: GivenAnswer,
-//     event: React.ChangeEvent<HTMLInputElement>
-// ) {
-//     setGivenAnswer(event.target.value);
-// }
-
 export function CheckAnswer({
     expectedAnswer
 }: {
