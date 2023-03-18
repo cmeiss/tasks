@@ -10,8 +10,8 @@ interface Name {
     setName: (newName: string) => void;
 }
 interface Student {
-    student: boolean;
-    setStudent: (newStudent: boolean) => void;
+    isStudent: boolean;
+    setIsStudent: (newStudent: boolean) => void;
 }
 
 function InEditName({ name, setName }: Name): JSX.Element {
@@ -30,15 +30,15 @@ function InEditName({ name, setName }: Name): JSX.Element {
     );
 }
 
-function InEditStudent({ student, setStudent }: Student): JSX.Element {
+function InEditStudent({ isStudent, setIsStudent }: Student): JSX.Element {
     return (
         <div>
             <Form.Check
                 type="checkbox"
                 id="is-student-check"
                 label="Are you a student?"
-                checked={student}
-                onChange={() => setStudent(!student)}
+                checked={isStudent}
+                onChange={() => setIsStudent(!isStudent)}
             />
         </div>
     );
@@ -46,14 +46,14 @@ function InEditStudent({ student, setStudent }: Student): JSX.Element {
 
 function NotInEdit({
     name,
-    student
+    isStudent
 }: {
     name: string;
-    student: boolean;
+    isStudent: boolean;
 }): JSX.Element {
     return (
         <div>
-            {name} is {student ? "" : "not"} a student.
+            {name} is {isStudent ? "" : "not"} a student.
         </div>
     );
 }
@@ -61,7 +61,7 @@ function NotInEdit({
 export function EditMode(): JSX.Element {
     const [editMode, setEditMode] = useState<boolean>(false);
     const [name, setName] = useState<string>("Your Name");
-    const [student, setStudent] = useState<boolean>(true);
+    const [isStudent, setIsStudent] = useState<boolean>(true);
     return (
         <div>
             <h3>Edit Mode</h3>
@@ -77,12 +77,12 @@ export function EditMode(): JSX.Element {
                     <div>
                         <InEditName name={name} setName={setName}></InEditName>
                         <InEditStudent
-                            student={student}
-                            setStudent={setStudent}
+                            isStudent={isStudent}
+                            setIsStudent={setIsStudent}
                         ></InEditStudent>
                     </div>
                 ) : (
-                    <NotInEdit name={name} student={student}></NotInEdit>
+                    <NotInEdit name={name} isStudent={isStudent}></NotInEdit>
                 )}
             </div>
         </div>
